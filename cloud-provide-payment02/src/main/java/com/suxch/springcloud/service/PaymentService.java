@@ -1,0 +1,8 @@
+package com.suxch.springcloud.service;
+
+import com.suxch.springcloud.pojo.Payment;
+
+public interface PaymentService {
+    int create(Payment payment);
+    Payment queryById(long id);
+}
