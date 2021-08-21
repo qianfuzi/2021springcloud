@@ -17,6 +17,7 @@
         <module>cloud-provide-payment02</module>
         <module>consul-provide-payment</module>
         <module>consul-consumer-payment</module>
+        <module>cloud-consumer-feign-order</module>
     </modules>
 
     <properties>

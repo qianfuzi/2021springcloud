@@ -5,11 +5,13 @@ import com.suxch.springcloud.pojo.Payment;
 import com.suxch.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @Slf4j
@@ -19,6 +21,8 @@ public class PaymentController {
     private PaymentService paymentService;
     @Autowired
     private DiscoveryClient discoveryClient;
+    @Value("${server.port}")
+    private String serverPort;
 
     @PostMapping("/create")
     public CommonResult create(@RequestBody Payment payment) {
@@ -54,5 +58,12 @@ public class PaymentController {
 
         }
         return this.discoveryClient;
+    }
+
+    @GetMapping("/timeout")
+    public String paymentFeignTimeOut() throws InterruptedException {
+        //模拟超时
+        TimeUnit.SECONDS.sleep(3);
+        return serverPort;
     }
 }

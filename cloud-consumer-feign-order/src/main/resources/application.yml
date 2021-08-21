@@ -1,0 +1,20 @@
+server:
+  port: 8720
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka-server8902.com:8902/eureka,http://eureka-server8901.com:8901/eureka
+ribbon:
+  # 指的是建立连接后从服务器读取到可用资源所用的时间
+  ReadTimeout: 5000
+  # 指的是建立连接所用的时间,适用于网络状态正常的情况下,两端连接所用的时间，设置等待5000为5秒时间
+  ConnectTimeout: 5000
+
+logging:
+  level:
+    # feign日志以什么级别监控哪个接口
+    com.suxch.springcloud.service.PaymentService: debug
