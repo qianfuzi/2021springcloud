@@ -1,5 +1,5 @@
 server:
-  port: 8502 #服务端口
+  port: 8701 #服务端口
 #spring相关配置
 spring:
   application:
