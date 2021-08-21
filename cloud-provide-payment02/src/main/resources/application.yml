@@ -25,5 +25,5 @@ eureka:
       #单机配置
       defaultZone: http://eureka-server8902.com:8902/eureka,http://eureka-server8901.com:8901/eureka
   instance:
-    instance-id: provide8510
+    instance-id: provide8520
     prefer-ip-address: true
